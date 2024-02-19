@@ -140,7 +140,7 @@ namespace Indexer
             Dictionary<string, int> res = new Dictionary<string, int>();
 
             var selectCmd = _connection.CreateCommand();
-            selectCmd.CommandText = "SELECT * FROM word";
+            selectCmd.CommandText = "SELECT * FROM word INNER JOIN Occ ON word.id=Occ.wordId";
 
             using (var reader = selectCmd.ExecuteReader())
             {

@@ -24,10 +24,12 @@ namespace Indexer
 
             Console.WriteLine($"Indexed {db.GetDocumentCounts()} documents");
             Console.WriteLine($"Number of different words: {all.Count}");
-            int count = 10;
-            Console.WriteLine($"The first {count} is:");
+            Console.WriteLine("How many words would you like to see?");
+            int showWords = Convert.ToInt32(Console.ReadLine());
+            int count = showWords;
+            Console.WriteLine($"The top {count} is:");
             foreach (var p in all) {
-                Console.WriteLine("<" + p.Key + ", " + p.Value + ">");
+                Console.WriteLine($"<{p.Key}, {p.Value}> -- ");
                 count--;
                 if (count == 0) break;
             }

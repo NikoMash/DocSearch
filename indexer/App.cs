@@ -29,7 +29,7 @@ namespace Indexer
             int count = showWords;
             Console.WriteLine($"The top {count} is:");
             foreach (var p in all) {
-                Console.WriteLine($"<{p.Key}, {p.Value}> -- ");
+                Console.WriteLine($"<{p.Key}, {p.Value.Item1}> -- {p.Value.Item2}");
                 count--;
                 if (count == 0) break;
             }

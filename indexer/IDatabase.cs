@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Shared.Model;
 
 namespace Indexer
@@ -6,7 +7,7 @@ namespace Indexer
     public interface IDatabase
     {
         //Get all words with key as the value, and the value as the id 
-        Dictionary<string, int> GetAllWords();
+        Dictionary<string, ValueTuple<int, int>> GetAllWords();
 
         // Return the number of documents
         int GetDocumentCounts();

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using Shared;
 using Shared.Model;
 using Microsoft.Data.Sqlite;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Collections.ObjectModel;
 
 namespace ConsoleSearch
 {
@@ -82,7 +87,7 @@ namespace ConsoleSearch
         private Dictionary<string, int> GetAllWords()
         {
             Dictionary<string, int> res = new Dictionary<string, int>();
-
+            
             var selectCmd = _connection.CreateCommand();
             selectCmd.CommandText = "SELECT * FROM word";
 
@@ -171,7 +176,7 @@ namespace ConsoleSearch
             return result;
         }
 
-        public List<int> GetWordIds(string[] query, out List<string> outIgnored)
+        public List<int> GetWordIds(string[] query, out List<string> outIgnored, bool CaseSensitive)
         {
             if (mWords == null)
                 mWords = GetAllWords();
@@ -180,10 +185,34 @@ namespace ConsoleSearch
 
             foreach (var aWord in query)
             {
-                if (mWords.ContainsKey(aWord))
-                    res.Add(mWords[aWord]);
+                if (!CaseSensitive)
+                {
+                    var newDict = new Dictionary<string, List<int>>(StringComparer.OrdinalIgnoreCase);
+                    foreach (var kvp in mWords) {
+                        if(!newDict.ContainsKey(kvp.Key)) {
+                            var vals = new List<int> { kvp.Value };
+                            newDict.Add(kvp.Key, vals);
+                        } else {
+                            newDict[kvp.Key].Add(kvp.Value);
+                        }
+                    }
+
+                    if (newDict.ContainsKey(aWord))
+                    {
+                       res = newDict[aWord];
+                    }
+                    else
+                    {
+                        ignored.Add(aWord);
+                    }
+                }
                 else
-                    ignored.Add(aWord);
+                {
+                    if (mWords.ContainsKey(aWord))
+                        res.Add(mWords[aWord]);
+                    else
+                        ignored.Add(aWord);
+                }
             }
             outIgnored = ignored;
             return res;

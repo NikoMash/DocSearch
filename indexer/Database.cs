@@ -141,7 +141,7 @@ namespace Indexer
             Dictionary<string, ValueTuple<int, int>> res = new Dictionary<string, ValueTuple<int, int>>();
 
             var selectCmd = _connection.CreateCommand();
-            selectCmd.CommandText = "SELECT word.id, word.name, count(*) AS total FROM word INNER JOIN Occ ON word.id=Occ.wordId GROUP BY word.id ORDER BY total DESC;";
+            selectCmd.CommandText = "SELECT word.id, word.name, count(word.id) AS total FROM word INNER JOIN Occ ON word.id=Occ.wordId GROUP BY word.id ORDER BY total DESC;";
 
             using (var reader = selectCmd.ExecuteReader())
             {

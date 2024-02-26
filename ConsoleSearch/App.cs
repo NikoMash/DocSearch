@@ -15,15 +15,14 @@ namespace ConsoleSearch
         public void Run()
         {
             SearchLogic mSearchLogic = new SearchLogic(new Database());
-            Config config = new();
-
             Console.WriteLine("Console Search");
             
             while (true)
             {
+                bool caseSensitive = true;
                 Console.WriteLine("enter search terms - q for quit");
                 Console.WriteLine("To change settings type 'settings'");
-                Console.WriteLine($"Case sensitivity: {config.CaseSensitive}");
+                Console.WriteLine($"Case sensitivity: {caseSensitive}");
                 string input = Console.ReadLine();
                 if (input.Equals("q")) break;
 
@@ -32,16 +31,16 @@ namespace ConsoleSearch
                     string command = Console.ReadLine();
 
                     if (command.Equals("cs=off")) {
-                        config.CaseSensitive = false;
+                        caseSensitive = false;
                     } else if (command.Equals("cs=on")) {
-                        config.CaseSensitive = true;
+                        caseSensitive = true;
                     }
                 } 
                 else {
                 
                 var query = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-                var result = mSearchLogic.Search(query, 10, config.CaseSensitive);
+                var result = mSearchLogic.Search(query, 10, caseSensitive);
 
                 if (result.Ignored.Count > 0) {
                     Console.WriteLine($"Ignored: {string.Join(',', result.Ignored)}");

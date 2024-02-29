@@ -1,13 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="Model\" />
+    <None Remove="Model\"/>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Model\"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SQLitePCLRaw.core" Version="2.1.8"/>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.2"/>
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.8"/>
   </ItemGroup>
 </Project>

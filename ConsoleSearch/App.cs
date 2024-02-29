@@ -12,6 +12,7 @@ namespace ConsoleSearch
         {
         }
 
+        bool caseSensitive = true;
         public void Run()
         {
             SearchLogic mSearchLogic = new SearchLogic(new Database());
@@ -19,7 +20,6 @@ namespace ConsoleSearch
             
             while (true)
             {
-                bool caseSensitive = true;
                 Console.WriteLine("enter search terms - q for quit");
                 Console.WriteLine("To change settings type 'settings'");
                 Console.WriteLine($"Case sensitivity: {caseSensitive}");

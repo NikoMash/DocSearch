@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Shared;
 using Shared.Model;
 using Microsoft.Data.Sqlite;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Collections.ObjectModel;
 
-namespace ConsoleSearch
+namespace Shared
 {
     public class Database : IDatabase
     {

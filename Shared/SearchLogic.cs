@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Shared.Model;
 
-namespace ConsoleSearch
+namespace Shared
 {
     public class SearchLogic
     {
         IDatabase mDatabase;
-
-        Dictionary<string, int> mWords;
 
         public SearchLogic(IDatabase database)
         {

@@ -82,3 +82,4 @@ C:\Users\Nikos\source\repos\AP\DocSearch\indexer\obj\Debug\net7.0\refint\indexer
 C:\Users\Nikos\source\repos\AP\DocSearch\indexer\obj\Debug\net7.0\indexer.pdb
 C:\Users\Nikos\source\repos\AP\DocSearch\indexer\obj\Debug\net7.0\indexer.genruntimeconfig.cache
 C:\Users\Nikos\source\repos\AP\DocSearch\indexer\obj\Debug\net7.0\ref\indexer.dll
+C:\Users\Bruger\Code\AP\docsearch\indexer\bin\Debug\net7.0\runtimes\linux-musl-s390x\native\libe_sqlite3.so

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Shared
 {
-    public class SearchLogic
+    public class SearchLogic : ISearchLogic
     {
         IDatabase mDatabase;
 

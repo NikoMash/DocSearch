@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using Core;
 
-namespace Core
+namespace SearchApi.Logic
 {
     public class SearchLogic : ISearchLogic
     {

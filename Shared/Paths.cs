@@ -1,10 +1,10 @@
 ﻿using System;
-namespace Shared
+namespace Core
 {
     public class Paths
     {
-        public static string FOLDER = @"C:/Users/Nikos/OneDrive/Data/seData/small";
+        public static string FOLDER = @"C:/Users/Bruger/OneDrive/Data/seData/small";
 
-        public static string DATABASE = @"/Users/Nikos/OneDrive/DB/docsearch.db";
+        public static string DATABASE = @"C:/Users/Bruger/OneDrive/DB/searchDBSmall.db";
     }
 }

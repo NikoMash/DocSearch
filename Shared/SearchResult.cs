@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Shared
+namespace Core
 {
     /*
      * A data class representing the result of a search.

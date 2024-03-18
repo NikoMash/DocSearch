@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Collections.ObjectModel;
 
-namespace Shared
+namespace Core
 {
     public class Database : IDatabase
     {

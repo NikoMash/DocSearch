@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Shared.Model;
 
-namespace Shared
+namespace Core
 {
     public class DocumentHit
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Shared.Model;
+using Core;
 
 namespace Indexer
 {

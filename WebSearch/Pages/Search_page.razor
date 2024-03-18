@@ -1,17 +1,17 @@
 @page "/search"
-@using Shared 
+@using Core 
 
 <PageTitle>Search</PageTitle>
 
 <h1>What would you like to search for?</h1>
-<input type="text" @bind="userInput">
+<input type="text" @bind="query">
 <button @onclick="Search">Search</button>
 <div>
     Case Sensitive:
     <input type="checkbox" @bind="caseSensitive">
 </div>
 
-@if (result.Hits != 0)
+@if (result != null)
 {
     <p>Results found in total @result.Hits</p>
     @foreach (var item in result.DocumentHits)
@@ -27,15 +27,12 @@ else
 }
 
 @code{
-    SearchLogic search = new SearchLogic(new Database());
-    string userInput = "";
-    static String[] query = new string[0];
-    bool caseSensitive = false;
-    SearchResult result = new SearchResult(query, 0, new List<DocumentHit>(), new List<string>(), TimeSpan.Zero);
+    private ISearchLogic searchLogic = SearchFactory.GetProxy();
+    private string query = "";
+    private bool caseSensitive = false;
+    private SearchResult? result;
     private void Search()
     {
-        query = userInput.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-        result = search.Search(query, 10, caseSensitive);
-        
+        result = searchLogic.Search(query.Split(" "), 10, caseSensitive);
     }
 }

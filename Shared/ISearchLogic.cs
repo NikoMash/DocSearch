@@ -4,6 +4,6 @@ namespace Core {
     
     public interface ISearchLogic {
         
-        public SearchResult Search(String[] query, int maxAmount, bool CaseSensitive);
+        SearchResult Search(string[] query, int maxAmount, bool CaseSensitive);
     };
 }

@@ -1,19 +1,25 @@
 @page "/search"
-@using Core 
+@using Core
 
 <PageTitle>Search</PageTitle>
 
 <h1>What would you like to search for?</h1>
 <input type="text" @bind="query">
-<button @onclick="Search">Search</button>
+<button @onclick="SearchOnClick">Search</button>
 <div>
     Case Sensitive:
     <input type="checkbox" @bind="caseSensitive">
 </div>
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>@errorMessage</p>
+}
+
 @if (result != null)
 {
     <p>Results found in total @result.Hits</p>
+    <p>Time used @result.TimeUsed.ToString()</p>
     @foreach (var item in result.DocumentHits)
     {
         <ul>
@@ -26,13 +32,21 @@ else
     <h4>No results found</h4>
 }
 
-@code{
+@code {
     private ISearchLogic searchLogic = SearchFactory.GetProxy();
     private string query = "";
     private bool caseSensitive = false;
     private SearchResult? result;
-    private void Search()
+    private string errorMessage = "";
+    private void SearchOnClick()
     {
-        result = searchLogic.Search(query.Split(" "), 10, caseSensitive);
+        try
+        {
+            result = searchLogic.Search(query.Split(" "), 10, caseSensitive);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occured: {ex.Message}";
+        }
     }
 }

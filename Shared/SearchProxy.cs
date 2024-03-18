@@ -2,6 +2,7 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
+using Newtonsoft.Json.Serialization;
 using static System.Net.WebRequestMethods;
 
 namespace Core
@@ -21,10 +22,10 @@ namespace Core
 
         public SearchResult Search(string[] query, int maxAmount, bool caseSensitive)
         {
-            var task = mHttp.GetFromJsonAsync<SearchResult>($"{serverEndPoint}{String.Join(",", query)}/{maxAmount}/{caseSensitive}");
-            var res = task.Result;
+            var task = mHttp.GetFromJsonAsync<SearchResult>($"{serverEndPoint}{string.Join(",", query)}/{maxAmount}/{caseSensitive}");
+            task.Wait();
 
-            return res;
+            return task.Result;
         }
     }
 }

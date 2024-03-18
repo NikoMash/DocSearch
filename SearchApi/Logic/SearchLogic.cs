@@ -44,7 +44,13 @@ namespace SearchApi.Logic
                 docresult.Add(new DocumentHit(doc, docIds[idx++].Value, missing));
             }
 
-            return new SearchResult(query, docIds.Count, docresult, ignored, DateTime.Now - start);
+            return new SearchResult{ 
+                Query = query, 
+                Hits = docIds.Count, 
+                DocumentHits = docresult, 
+                Ignored = ignored, 
+                TimeUsed = DateTime.Now - start 
+                };
         }
     }
 }

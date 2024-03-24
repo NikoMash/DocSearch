@@ -20,12 +20,14 @@
 {
     <p>Results found in total @result.Hits</p>
     <p>Time used @result.TimeUsed.ToString()</p>
-    @foreach (var item in result.DocumentHits)
-    {
-        <ul>
-            <li>@item.Document.mUrl</li>
-        </ul>
-    }
+    <table class="table">
+        @foreach (var item in result.DocumentHits)
+        {
+            <tr>
+                <p>@item.Document.mUrl</p>
+            </tr>
+        }
+    </table>
 }
 else
 {
@@ -46,7 +48,7 @@ else
         }
         catch (Exception ex)
         {
-            errorMessage = $"An error occured: {ex.Message}";
+            errorMessage = $"An error occurred: {ex.Message}";
         }
     }
 }

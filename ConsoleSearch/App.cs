@@ -15,7 +15,7 @@ namespace ConsoleSearch
         bool caseSensitive = true;
         public void Run()
         {
-            SearchLogic mSearchLogic = new SearchLogic(new Database());
+            ISearchLogic mSearchLogic = SearchFactory.GetProxy();
             Console.WriteLine("Console Search");
             
             while (true)

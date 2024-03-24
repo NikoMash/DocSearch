@@ -16,7 +16,7 @@ namespace SearchApi.Logic
         /* Perform search of documents containing words from query. The result will
          * contain details about amost maxAmount of documents.
          */
-        public SearchResult Search(String[] query, int maxAmount, bool CaseSensitive)
+        public SearchResult Search(string[] query, int maxAmount, bool CaseSensitive)
         {
             List<string> ignored;
 
@@ -41,7 +41,12 @@ namespace SearchApi.Logic
             {
                 var missing = mDatabase.WordsFromIds(mDatabase.getMissing(doc.mId, wordIds));
                   
-                docresult.Add(new DocumentHit(doc, docIds[idx++].Value, missing));
+                docresult.Add(new DocumentHit
+                {
+                    Document = doc, 
+                    NoOfHits = docIds[idx++].Value, 
+                    Missing = missing
+                });
             }
 
             return new SearchResult{ 

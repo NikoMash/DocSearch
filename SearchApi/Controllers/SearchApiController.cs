@@ -11,7 +11,7 @@ namespace SearchApi.Controllers
     {
 
         [HttpGet]
-        [Route("{query}/{maxAmount}/{caseSensitive}/")]
+        [Route("{query}/{maxAmount}/{caseSensitive}")]
         public SearchResult Search(string query, int maxAmount, bool caseSensitive) {
 
             var searchResult = Logic.SearchFactory.GetSearchLogic();

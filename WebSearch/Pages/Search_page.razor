@@ -1,0 +1,54 @@
+@page "/search"
+@using Core
+
+<PageTitle>Search</PageTitle>
+
+<h1>What would you like to search for?</h1>
+<input type="text" @bind="query">
+<button @onclick="SearchOnClick">Search</button>
+<div>
+    Case Sensitive:
+    <input type="checkbox" @bind="caseSensitive">
+</div>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>@errorMessage</p>
+}
+
+@if (result != null)
+{
+    <p>Results found in total @result.Hits</p>
+    <p>Time used @result.TimeUsed.ToString()</p>
+    <table class="table">
+        @foreach (var item in result.DocumentHits)
+        {
+            <tr>
+                <p>@item.Document.mUrl</p>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h4>No results found</h4>
+}
+
+@code {
+    private ISearchLogic searchLogic = SearchFactory.GetProxy();
+    private string query = "";
+    private bool caseSensitive = false;
+    private SearchResult? result;
+    private string errorMessage = "";
+    private void SearchOnClick()
+    {
+        try
+        {
+            result = searchLogic.Search(query.Split(" "), 10, caseSensitive);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+    }
+}

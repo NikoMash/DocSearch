@@ -1,5 +1,5 @@
 ﻿using System;
-using Shared.Model;
+using Core;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
@@ -12,14 +12,14 @@ namespace ConsoleSearch
         {
         }
 
+        bool caseSensitive = true;
         public void Run()
         {
-            SearchLogic mSearchLogic = new SearchLogic(new Database());
+            ISearchLogic mSearchLogic = SearchFactory.GetProxy();
             Console.WriteLine("Console Search");
             
             while (true)
             {
-                bool caseSensitive = true;
                 Console.WriteLine("enter search terms - q for quit");
                 Console.WriteLine("To change settings type 'settings'");
                 Console.WriteLine($"Case sensitivity: {caseSensitive}");

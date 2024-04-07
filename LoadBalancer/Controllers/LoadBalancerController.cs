@@ -7,8 +7,8 @@ namespace LoadBalancer.Controllers;
 public class LoadBalancerController : ControllerBase
 {
     private static readonly string[] servers =  {
-        "http://localhost:7055/api/search",
-        "http://localhost:7056/api/search"
+        "http://localhost:5259/api/search",
+        "http://localhost:5260/api/search"
     };
 
     private static int next = 0;

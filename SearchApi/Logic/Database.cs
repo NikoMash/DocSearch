@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Collections.ObjectModel;
+using Microsoft.CodeAnalysis;
 
 namespace Core
 {
@@ -20,7 +21,17 @@ namespace Core
         {
             var connectionStringBuilder = new SqliteConnectionStringBuilder();
 
-            connectionStringBuilder.DataSource = Paths.DATABASE;
+            string[] paths = {
+                Paths.DATABASE,
+                Paths.DATABASE2
+            };
+
+            int next = 0;
+            next = (next + 1) % paths.Length;
+            string path = paths[next];
+
+            connectionStringBuilder.DataSource = path;
+
 
 
             _connection = new SqliteConnection(connectionStringBuilder.ConnectionString);

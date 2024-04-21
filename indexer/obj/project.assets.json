@@ -9284,32 +9284,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nikos\\.nuget\\packages\\": {}
+    "C:\\Users\\Bruger\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nikos\\source\\repos\\AP\\DocSearch\\indexer\\indexer.csproj",
+      "projectUniqueName": "C:\\Users\\Bruger\\Code\\AP\\docsearch\\indexer\\indexer.csproj",
       "projectName": "indexer",
-      "projectPath": "C:\\Users\\Nikos\\source\\repos\\AP\\DocSearch\\indexer\\indexer.csproj",
-      "packagesPath": "C:\\Users\\Nikos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nikos\\source\\repos\\AP\\DocSearch\\indexer\\obj\\",
+      "projectPath": "C:\\Users\\Bruger\\Code\\AP\\docsearch\\indexer\\indexer.csproj",
+      "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bruger\\Code\\AP\\docsearch\\indexer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nikos\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Nikos\\source\\repos\\AP\\DocSearch\\Shared\\Core.csproj": {
-              "projectPath": "C:\\Users\\Nikos\\source\\repos\\AP\\DocSearch\\Shared\\Core.csproj"
+            "C:\\Users\\Bruger\\Code\\AP\\docsearch\\Shared\\Core.csproj": {
+              "projectPath": "C:\\Users\\Bruger\\Code\\AP\\docsearch\\Shared\\Core.csproj"
             }
           }
         }
@@ -9345,7 +9347,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
